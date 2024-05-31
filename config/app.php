@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,6 +185,10 @@ return [
         /*
          * Package Service Providers...
          */
+
+            // ...
+//        Filament\FilamentServiceProvider::class,
+
 
         /*
          * Application Service Providers...

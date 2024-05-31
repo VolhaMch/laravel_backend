@@ -8,7 +8,7 @@ use App\Http\Resources\UserResource;
 
 class  UserController extends Controller
 {
-    public function getIndex(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    public function getIndex()
     {
         return UserResource::collection(User::all());
 //return response()->json(User::all());
