@@ -15,7 +15,7 @@
                                 <div class="flex items-center flex-wrap ">
                                     <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                                        href="{{asset('blog/'.$blog->id.'?title='.Str::slug($blog->name))}}">
-                                        Learn More
+                                        {{__('menu.learn_more')}}
                                     </a>
                                 </div>
                             </div>

@@ -15,12 +15,15 @@ return [
         'minsk' => 'Minsk',
         'belarus' => 'Belarus',
         'email' => 'Email',
-       'phome' => 'Phone',
+       'phone' => 'Phone',
         'website' => 'Website'
     ],
     'message_send' => 'Send me a message',
     'your_name' => 'Your name',
     'your_email' => 'Your email',
     'phone_number' => 'Phone number',
-    'write_your_message' => 'Write your message'
+    'write_your_message' => 'Write your message',
+    'volha_machys' => 'Volha Machys',
+    'download' => 'Download CV',
+    'learn_more' => 'Learn More'
 ];

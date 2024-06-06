@@ -22,6 +22,9 @@ return [
     'your_name' => 'Ваше имя',
     'your_email' => 'Ваш email',
     'phone_number' => 'Ваш номер телефона',
-    'write_your_message' => 'Ваше сообщение'
+    'write_your_message' => 'Ваше сообщение',
+    'volha_machys' => 'Ольга Мачис',
+    'download' => 'Резюме',
+    'learn_more' => 'Читать далее'
 
 ];

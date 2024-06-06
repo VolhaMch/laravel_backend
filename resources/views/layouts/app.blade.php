@@ -29,6 +29,7 @@
 
     <!-- Page Content -->
     <main>
+{{--        class="bg-[url('/public/img/background.jpg')] bg-cover bg-center bg-opacity-25 bg-fixed h-screen"--}}
         {{ $slot }}
     </main>
 </div>

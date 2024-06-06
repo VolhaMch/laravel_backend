@@ -33,6 +33,11 @@ Route::middleware('auth')->group(function () {
 Route::get('blogs', [Controllers\BlogController::class, 'getAll']);
 Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
 
+    Route::get('review', [Controllers\ReviewController::class,'getIndex']
+    );
+    Route::post('review', [Controllers\ReviewController::class,'postIndex']
+    );
+
 Route::middleware('auth')->group(function () {
     Route::post('blog/{blog}/add_text', [Controllers\BlogController::class, 'postBlogText']);
     Route::post('blogtext/{blog_text}/add_picture', [Controllers\BlogController::class, 'addPicture']);
