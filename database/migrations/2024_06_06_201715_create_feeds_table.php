@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('feeds', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->nullable();
+            $table->integer('country_id')->nullable();
+            $table->string('model_name')->nullable();
+            $table->integer('model_id')->nullable();
+            $table->string('type')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
