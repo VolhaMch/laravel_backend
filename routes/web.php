@@ -38,6 +38,12 @@ Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
     Route::post('review', [Controllers\ReviewController::class,'postIndex']
     );
 
+    Route::get('feed', [Controllers\FeedController::class, 'getIndex']);
+    Route::get('star/add', [Controllers\StarController::class, 'getAdd']);
+
+    Route::get('comment', [Controllers\CommentController::class,'getIndex']);
+    Route::post('comment', [Controllers\CommentController::class, 'postIndex']);
+
 Route::middleware('auth')->group(function () {
     Route::post('blog/{blog}/add_text', [Controllers\BlogController::class, 'postBlogText']);
     Route::post('blogtext/{blog_text}/add_picture', [Controllers\BlogController::class, 'addPicture']);

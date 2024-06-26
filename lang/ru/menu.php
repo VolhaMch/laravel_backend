@@ -7,6 +7,7 @@ return [
     'case_studies' => 'Кейсы',
     'blog' => 'Блог',
     'contact_me' => 'Связаться',
+    'reviews' => 'Отзывы',
     'language'=> 'Язык',
     'contact_info' => 'Контактная информация',
     'welcome' => 'Добро пожаловать',

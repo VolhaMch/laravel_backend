@@ -54,7 +54,7 @@
                         <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
                         <input type="hidden" name="preferred" value="отзыв">
                         <button type="submit" class="px-4 py-2 mt-8 font-semibold text-gray-800 bg-white border border-gray-300 rounded shadow hover:bg-gray-100">
-                            Оставить отзыв
+                            Отправить
                         </button>
                     </form>
                 </div>

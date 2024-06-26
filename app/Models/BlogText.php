@@ -12,4 +12,8 @@ class BlogText extends Model
     public function pictures(){
         return $this->hasMany(BlogTextPicture::class);
     }
+    public function blog(){
+        return $this->belongsTo(Blog::class);
+    }
+
 }
