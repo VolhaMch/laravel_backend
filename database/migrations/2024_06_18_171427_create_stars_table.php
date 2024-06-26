@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('stars', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->string('model_name');
+            $table->unsignedInteger('model_id');
+            $table->ipAddress('ip')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

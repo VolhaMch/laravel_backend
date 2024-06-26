@@ -6,6 +6,7 @@ return [
     'case_studies' => 'Case Studies',
     'blog' => 'Blog',
     'contact_me' => 'Contact me',
+    'reviews' => 'Reviews',
     'language' => 'Language',
     'contact_info' => 'Contact info',
     'welcome' => 'Welcome',

@@ -14,7 +14,7 @@ class BlogObserver
      */
     public function created(Blog $blog)
     {
-        App::make(Feeder)
+        App::make(App\Actions\Feeder::class)->save($blog, 'Blog', 'created');
     }
 
     /**
@@ -25,7 +25,7 @@ class BlogObserver
      */
     public function updated(Blog $blog)
     {
-        //
+        App::make(App\Actions\Feeder::class)->save($blog, 'Blog', 'updated');
     }
 
     /**

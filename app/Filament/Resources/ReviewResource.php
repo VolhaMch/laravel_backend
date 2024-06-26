@@ -10,6 +10,10 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -26,7 +30,7 @@ class ReviewResource extends Resource
                 TextInput::make('name')->required(),
                 TextInput::make('email')->required(),
                 TextInput::make('phone')->required(),
-                TextArea::make('message')->required()->ColumnSpanFull,
+                Textarea::make('message')->required()->columnSpanFull(),
 
             ]);
     }
@@ -35,7 +39,11 @@ class ReviewResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
+                TextColumn::make('email'),
+                TextColumn::make('phone'),
+                TextColumn::make('message'),
+                ToggleColumn::make('preferred'),
             ])
             ->filters([
                 //

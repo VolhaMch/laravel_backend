@@ -43,6 +43,7 @@ class OpenGraphResource extends Resource
             ->columns([
                 TextColumn::make('url')->sortable(),
                 TextColumn::make('og_title')->sortable(),
+                Tables\Columns\ImageColumn::make('og_image')->sortable(),
             ])
             ->filters([
                 //

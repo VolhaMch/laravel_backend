@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\BlogTextPicture;
+use Illuminate\Support\Facades\App;
 
 class BlogTextPictureObserver
 {
@@ -14,7 +15,7 @@ class BlogTextPictureObserver
      */
     public function created(BlogTextPicture $blogTextPicture)
     {
-        //
+        App::make(App\Actions\Feeder::class)->save($blogTextPicture, 'BlogTextPicture', 'created');
     }
 
     /**
@@ -25,7 +26,7 @@ class BlogTextPictureObserver
      */
     public function updated(BlogTextPicture $blogTextPicture)
     {
-        //
+        App::make(App\Actions\Feeder::class)->save($blogTextPicture, 'BlogTextPicture', 'updated');
     }
 
     /**
