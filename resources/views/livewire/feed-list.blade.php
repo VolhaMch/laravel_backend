@@ -24,4 +24,7 @@
                 @break
         @endswitch
     @endforeach
+        @if($canLoadMore)
+            <a class="w-full p-2 m-2 text-center cursor-auto" wire:click="loadMore">Load more</a>
+        @endif
 </div>

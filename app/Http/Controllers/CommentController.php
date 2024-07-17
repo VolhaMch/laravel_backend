@@ -14,8 +14,6 @@ class CommentController extends Controller
     }
     public function postIndex(Request $request)
     {
-
-
         Comment::create($request->all());
         $request->session()->flash('status', 'Your comment has been shared.');
         return redirect()->back();

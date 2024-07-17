@@ -26,5 +26,8 @@ return [
     'write_your_message' => 'Write your message',
     'volha_machys' => 'Volha Machys',
     'download' => 'Download CV',
-    'learn_more' => 'Learn More'
+    'learn_more' => 'Learn More',
+    'get_in_touch'=> 'Get in touch',
+    'message'=>'Message',
+    'send'=>'Send'
 ];

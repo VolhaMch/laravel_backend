@@ -9,7 +9,19 @@
     </button>
 
     <div class="hidden md:flex md:items-center md:w-auto w-full">
-<div class="flex flex-row">
+        <ul class="m-4 link link-hover">
+{{--            @if (Auth::check())--}}
+{{--                <li><a href="{{ route('logout') }}">Log Out</a></li>--}}
+{{--            @else--}}
+{{--                <li><a href="{{ route('login') }}">Log In</a></li>--}}
+{{--            @endif--}}
+            <i class="fa-regular fa-user">
+            </i>
+            <a href="/login">Log in</a>
+        </ul>
+
+        <div class="flex flex-row">
+
     <ul class="flex flex-row mt-4">
         <li class="px-2 link link-hover">
             @if($_SERVER['REQUEST_URI'] == '/')
@@ -39,18 +51,18 @@
             <a href="/blogs">{{__('menu.blog')}}</a>
         @endif
         </li>
-        <li class="px-2 link link-hover">
-            @if($world == 'contact')
-                <span class="bg-gray-600">{{__('menu.contact_me')}}</span>
-            @else
-            <a href="/contact">{{__('menu.contact_me')}}</a>
-            @endif
-        </li>
+{{--        <li class="px-2 link link-hover">--}}
+{{--            @if($world == 'contact')--}}
+{{--                <span class="bg-gray-600">{{__('menu.contact_me')}}</span>--}}
+{{--            @else--}}
+{{--            <a href="/contact">{{__('menu.contact_me')}}</a>--}}
+{{--            @endif--}}
+{{--        </li>--}}
         <li class="px-2 link link-hover">
             @if($world == 'review')
-                <span class="bg-gray-600">{{__('menu.reviews')}}</span>
+                <span class="bg-gray-600">{{__('menu.contact_me')}}</span>
             @else
-                <a href="/review">{{__('menu.reviews')}}</a>
+                <a href="/review">{{__('menu.contact_me')}}</a>
             @endif
         </li>
 
@@ -69,7 +81,10 @@
                 </details>
             </li>
 
+
+
     </ul>
+
 </div>
 </div>
 </div>

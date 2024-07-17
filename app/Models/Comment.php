@@ -12,5 +12,5 @@ class Comment extends Model
     protected $casts = [
         'preferred' => 'boolean',
     ];
-    public $fillable = ['post_id', 'user_name', 'preferred', 'message'];
+    public $fillable = ['post_id', 'user_id', 'preferred', 'message'];
 }
