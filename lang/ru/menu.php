@@ -7,6 +7,7 @@ return [
     'case_studies' => 'Кейсы',
     'blog' => 'Блог',
     'contact_me' => 'Связаться',
+    'reviews' => 'Отзывы',
     'language'=> 'Язык',
     'contact_info' => 'Контактная информация',
     'welcome' => 'Добро пожаловать',
@@ -25,6 +26,8 @@ return [
     'write_your_message' => 'Ваше сообщение',
     'volha_machys' => 'Ольга Мачис',
     'download' => 'Резюме',
-    'learn_more' => 'Читать далее'
-
+    'learn_more' => 'Читать далее',
+    'get_in_touch'=> 'Связаться',
+    'message'=>'Сообщение',
+    'send'=>'Отправить',
 ];

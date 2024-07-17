@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,9 +11,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register() //регистрация собственных провайдеров, связывание зависимостей
     {
-        //
+        View::composer([], 'App\Providers\ViewComposers\UrlComposer');
+        View::composer(['layouts.navigation'], 'App\Providers\ViewComposers\UrlComposer');
+        View::composer(['layouts.app'], 'App\Providers\ViewComposers\UrlComposer');
+        View::composer(['layouts.app'], 'App\Providers\ViewComposers\OpenGraphComposer');
+
     }
 
     /**
@@ -21,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot() // настройка приложения
     {
         //
     }

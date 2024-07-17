@@ -11,4 +11,8 @@ class BlogTextPicture extends Model
     protected $fillable = [
         'name', 'user_id', 'blog_text_id', 'position', 'picture'
     ];
+    public function blog_text(){
+        return $this->belongsTo(BlogText::class);
+    }
 }
+
