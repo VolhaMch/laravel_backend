@@ -46,6 +46,9 @@ Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
     Route::get('/portfolio', function () {
         return view('portfolio');
     });
+    Route::get('/case', function () {
+        return view('case');
+    });
 Route::middleware('auth')->group(function () {
     Route::post('blog/{blog}/add_text', [Controllers\BlogController::class, 'postBlogText']);
     Route::post('blogtext/{blog_text}/add_picture', [Controllers\BlogController::class, 'addPicture']);

@@ -1,17 +1,66 @@
 <x-app-layout>
 
-
+    <div class="m-4 bg-white rounded-2xl pb-8">
     <h1 class="text-center text-xl font-bold pt-6 pb-4 lg:text-2xl">Skills</h1>
-soft, tech
-Tools
-Marketing, devtools
-Leadconnect, Sales Navigator, LinkedHelper
 
+    <div class="grid grid-cols-2  md:grid-cols-4 gap-4">
+
+        <div class="grid grid-col-1 justify-items-center" x-data="{ open: false }">
+            <div><button  @click="open = !open"  class="btn btn-outline m-2">Marketing</button></div>
+            <div x-show="open">
+                <ul>
+                    <li class="m-2">Leadconnect</li><hr>
+                    <li class="m-2">Sales Navigator</li><hr>
+                    <li class="m-2">LinkedHelper</li><hr>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid grid-col-1 justify-items-center" x-data="{ open: false }">
+            <button  @click="open = !open"  class="btn btn-outline m-2">Tech skills</button>
+            <div x-show="open">
+                <ul>
+                    <li class="m-2">Vue.js</li><hr>
+                    <li class="m-2">Laravel</li><hr>
+                    <li class="m-2">Git</li><hr>
+                </ul>
+            </div>
+        </div>
+        <div class="grid grid-col-1 justify-items-center" x-data="{ open: false }">
+            <button  @click="open = !open"  class="btn btn-outline m-2">Languages</button>
+            <div x-show="open">
+                <ul>
+                    <li class="m-2">English, C1</li><hr>
+                    <li class="m-2">Polish, A1</li><hr>
+                    <li class="m-2">German, A1</li><hr>
+                </ul>
+            </div>
+        </div>
+        <div class="grid grid-col-1 justify-items-center" x-data="{ open: false }">
+            <button  @click="open = !open"  class="btn btn-outline m-2">All skills</button>
+            <div x-show="open">
+                <ul>
+                    <li class="m-2">Leadconnect</li> <hr>
+                    <li class="m-2">Sales Navigator</li> <hr>
+                    <li class="m-2">LinkedHelper</li> <hr>
+                    <li class="m-2">Vue.js</li> <hr>
+                    <li class="m-2">Laravel</li> <hr>
+                    <li class="m-2">Git</li> <hr>
+                    <li class="m-2">English</li> <hr>
+                    <li class="m-2">Polish</li> <hr>
+                    <li class="m-2">German</li> <hr>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="m-4 bg-white rounded-2xl">
     <h1 class="text-center text-xl font-bold pt-6 pb-4 lg:text-2xl">Working experience</h1>
     <div class="flex flex-col overflow-y-auto text-base ml-2 mr-2 md:text-lg ml-10">
 
 
-        <div class="flex flex-row mt-16 gap-6">
+        <div class="flex flex-row mt-16 gap-6 lg:ml-10">
             <div>
                 <img class="h-20 w-20"  src="/img/scnsoft.png" alt="ScienceSoft">
             </div>
@@ -39,7 +88,7 @@ Leadconnect, Sales Navigator, LinkedHelper
             <br>
         </div>
         <hr>
-        <div class="flex flex-row mt-16 gap-6">
+        <div class="flex flex-row mt-16 gap-6 lg:ml-10">
             <div>
                 <img class="h-20 w-20"  src="/img/ocsico.png" alt="OCSICO">
             </div>
@@ -64,9 +113,10 @@ Leadconnect, Sales Navigator, LinkedHelper
             </ul>
             </p>
         </div>
-
+    </div>
     </div>
 
+    <div class="m-4 bg-white rounded-2xl">
 <h1 class="text-center text-xl font-bold pt-6 pb-4 lg:text-2xl">Education</h1>
     <div class="flex flex-col gap-4 pb-4 text-sm lg:ml-10 text-lg">
     <div class="flex flex-row gap-4 ml-2 mr-2">
@@ -127,8 +177,10 @@ Leadconnect, Sales Navigator, LinkedHelper
         </div>
     </div>
     </div>
+
 </div>
 <hr>
 <br>
+    </div>
 
     </x-app-layout>

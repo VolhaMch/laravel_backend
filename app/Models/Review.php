@@ -11,5 +11,5 @@ class Review extends Model
     protected $casts = [
         'preferred' => 'boolean',
     ];
-    public $fillable = ['used_id', 'sponsor_id', 'name', 'email', 'preferred', 'message'];
+    public $fillable = ['used_id', 'sponsor_id', 'name', 'email', 'preferred', 'message', 'ip'];
 }

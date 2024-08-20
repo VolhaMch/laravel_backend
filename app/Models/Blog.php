@@ -10,7 +10,7 @@ class Blog extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $fillable = ['name', 'user_id', 'description_small', 'description', 'status', 'picture'];
+    public $fillable = ['name', 'user_id', 'description_small', 'description', 'status', 'picture', 'tags', 'minutes', 'posted'];
     public function texts(){
         return $this->hasMany(BlogText::class);
     }

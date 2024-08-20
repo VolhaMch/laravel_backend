@@ -34,6 +34,9 @@ class BlogResource extends Resource
                 RichEditor::make('description')->columnSpanFull(),
                 FileUpload::make('picture')->directory('blogs'),
                 TextInput::make('status'),
+                TextInput::make('tags'),
+                TextInput::make('minutes'),
+                TextInput::make('posted')
             ]);
     }
 //вывод

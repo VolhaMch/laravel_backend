@@ -30,4 +30,7 @@ return [
     'get_in_touch'=> 'Связаться',
     'message'=>'Сообщение',
     'send'=>'Отправить',
+    'requirements'=>'Требования',
+    'customer'=>'Заказчик',
+    'technologies'=>'Технологии',
 ];

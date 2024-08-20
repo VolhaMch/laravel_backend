@@ -29,5 +29,8 @@ return [
     'learn_more' => 'Learn More',
     'get_in_touch'=> 'Get in touch',
     'message'=>'Message',
-    'send'=>'Send'
+    'send'=>'Send',
+    'requirements'=>'Requirements',
+    'customer'=>'Customer',
+    'technologies'=>'Technologies',
 ];

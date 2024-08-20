@@ -3,7 +3,6 @@
 namespace App\Actions;
     use Intervention\Image\ImageManager;
     use Intervention\Image\Drivers\Gd\Driver;
-    use App\Actions\Imag;
     use Illuminate\Support\Facades\App;
 
 class Imag

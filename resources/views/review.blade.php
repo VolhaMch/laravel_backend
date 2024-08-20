@@ -1,4 +1,10 @@
 <x-app-layout>
+    @section('title', 'Contact page')
+
+    @section('meta')
+        <meta name="description" content="Свяжитесь со мной для дополнительной информации.">
+        <meta name="keywords" content="контакты, связаться, информация">
+    @endsection
 
 @if (session('status'))
     <div class="toast toast-top toast-end" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">
@@ -31,31 +37,34 @@
     <div class="pt-8 md:pt-28">
         <div class="text-4xl font-semibold pb-5 text-center">{{__('menu.get_in_touch')}}</div>
     </div>
-                    <form action="{{asset('review/')}}" method="post" class="flex flex-col">
+    @if($showhide)
+        Thank you!
+        @else
+    <form action="{{asset('review/')}}" method="post" class="flex flex-col">
                         @csrf
 
                         <label for="name" class="block">
                             <span class="text-gray-700">{{__('menu.your_name')}}</span>
-                            <input class="block w-full mt-1 form-input" required name="name" id="name" type="text" autocomplete="off">
+                            <input class="block w-full mt-1 form-input bg-stone-100" required name="name" id="name" type="text" autocomplete="off">
                         </label>
                         <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
 
                         <label for="email" class="block mt-4">
                             <span class="text-gray-700">{{__('menu.your_email')}}</span>
-                            <input class="block w-full mt-1 form-input" required name="email" id="email" autocomplete="off" type="email">
+                            <input class="block w-full mt-1 form-input bg-stone-100" required name="email" id="email" autocomplete="off" type="email">
                         </label>
                         <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
 
                         <label for="phone" class="block mt-4">
                             <span class="text-gray-700">{{__('menu.phone_number')}}</span>
-                            <input class="block w-full mt-1 form-input" required name="phone" id="phone" autocomplete="off" type="tel">
+                            <input class="block w-full mt-1 form-input bg-stone-100" required name="phone" id="phone" autocomplete="off" type="tel">
                         </label>
                         <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
 
 
                         <label class="block mt-4 md:col-span-2">
                             <span class="text-gray-700">{{__('menu.message')}}</span>
-                            <textarea class="block w-full mt-1 form-textarea" required name="message" rows="4" placeholder=""></textarea>
+                            <textarea class="block w-full mt-1 form-textarea bg-stone-100" required name="message" rows="4" placeholder=""></textarea>
                         </label>
                         <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
                         <input type="hidden" name="preferred" value="отзыв">
@@ -63,6 +72,7 @@
                             {{__('menu.send')}}
                         </button>
                     </form>
+    @endif
 </div>
 
 {{--            </div>--}}
@@ -70,4 +80,5 @@
 
 
 </div>
+
 </x-app-layout>

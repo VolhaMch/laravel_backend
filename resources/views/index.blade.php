@@ -1,5 +1,5 @@
 <x-app-layout>
-  <div class="bg-cover bg-center bg-no-repeat h-screen bg-opacity-25 bg-[url('/public/img/background_1.jpg')]">
+
 {{--    <x-slot name="header">--}}
 {{--        <div class="overflow-hidden">--}}
 {{--        <h2 class="font-semibold  text-xl text-black leading-tight">--}}
@@ -40,13 +40,7 @@
         </svg></a>
     </div>
 
-
-
-
       </div>
-
-
-  </div>
 
 </x-app-layout>
 
