@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Blog extends Model
 {
     use HasFactory, SoftDeletes;
@@ -16,5 +17,12 @@ class Blog extends Model
     }
     public function stars(){
         return $this->hasMany(Star::class, 'model_id');
+    }
+    public function users() {
+        return $this->belongsToMany(User::class, 'user_marked_blogs');
+    }
+    public function favoritedBy()
+    {
+        return $this->belongsToMany(User::class, 'favorites');
     }
 }

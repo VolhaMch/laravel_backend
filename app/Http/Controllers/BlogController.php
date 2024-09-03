@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 use App\Actions\Imag;
 use App\Models\Comment;
+use App\Models\User;
 
 
 
 class BlogController extends Controller
 {
+
+
     public function getAll(){
         $lang = App::getLocale();
 
@@ -66,6 +69,7 @@ class BlogController extends Controller
         BlogTextPicture::where('id', $blog_text_picture->id)->delete();
         return redirect()->back();
     }
+
     public function postAddComment(Blog $blog, Request $request){
         $comment = new Comment;
         $comment->user_name = Auth::user()->name; // $request->username

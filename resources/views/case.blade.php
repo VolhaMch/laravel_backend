@@ -1,22 +1,27 @@
 <x-app-layout>
-    <h1>Примеры проектов</h1>
-    <p>Описания запросов от лидов, приведенных в компанию. Подробные детали проектов и заказчиков скрыты согласно договора о неразглашении</p>
-    <div class="carousel w-full mt-8 mx-4">
+    @section('title', 'Case studies')
+
+    @section('meta')
+        <meta name="description" content="Примеры успешно приведенных проектов">
+        <meta name="keywords" content="лидогенерация, лиды, проеты, ИТ">
+    @endsection
+    <div class="m-4 text-center">
+    <h1 class="text-lg font-bold">Примеры проектов</h1>
+    <p class="mt-2 text-md lg:text-lg">Описания реальных запросов от лидов, приведенных в компанию</p>
+        <p class="m-2 italic text-sm lg:text-md"> Примечание: подробные детали, такие, как имена компаний, цены и контактные лица скрыты в соответствии с заключенным договором о неразглашении</p>
+    </div>
+        <div class="carousel w-full mt-8 mx-4">
 
         <div id="item1" class="carousel-item w-full">
             <div class="grid grid-cols-2 m-2 md:grid-cols-4 gap-2">
                 <div class="col-span-1 h-40 w-40"><img src="/img/QA.jpg"></div>
-                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>ИТ консалтинг</p></div>
+                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>{{__('menu.cases.consulting') }}</p></div>
                 <div class="col-span-2">
                     <div class="grid grid-cols-2 grid-rows-3 gap-2">
                         <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>крупный банк из Омана</p></div>
-                        <div><p class="text-blue-500">{{__('menu.requirements') }}</p> <p>Consultancy Services for the Update of IT Strategy</p></div>
-                        <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>Транспортный центр из ОАЭ</p></div>
-                        <div> <p class="text-blue-500">{{__('menu.requirements') }}</p> <p>Consultancy Services for the Update of IT Strategy</p></div>
-                        <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>крупный банк из Омана</p></div>
-                        <div><p class="text-blue-500">{{__('menu.requirements') }}</p> <p>Consultancy Services for the Update of IT Strategy</p></div>
-                        <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>Транспортный центр из ОАЭ</p></div>
-                        <div> <p class="text-blue-500">{{__('menu.requirements') }}</p> <p>Consultancy Services for the Update of IT Strategy</p></div>
+                        <div><p class="text-blue-500">{{__('menu.requirements') }}</p> <p>консультационные услуги по обновлению ИТ-стратегии</p></div>
+                        <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>транспортный центр из ОАЭ</p></div>
+                        <div> <p class="text-blue-500">{{__('menu.requirements') }}</p> <p>консультационные услуги по  интеграции платежной системы</p></div>
                     </div>
                 </div>
             </div>
@@ -24,7 +29,7 @@
         <div id="item2" class="carousel-item w-full">
             <div class="grid grid-cols-2 m-2 md:grid-cols-4 gap-2">
                 <div class="col-span-1 h-40 w-40"><img src="/img/QA.jpg"></div>
-                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>Кибербезопасность</p></div>
+                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>{{__('menu.cases.cybersecurity') }}</p></div>
                 <div class="col-span-2">
                     <div class="grid grid-cols-2 grid-rows-3 gap-2">
                     <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>Recruitment provider in the supply chain industry from the UK</p></div>
@@ -39,7 +44,7 @@
         <div id="item3" class="carousel-item w-full">
             <div class="grid grid-cols-2 m-2 md:grid-cols-4 gap-2">
                 <div class="col-span-1 h-40 w-40"><img src="/img/QA.jpg"></div>
-                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>Custom software development</p></div>
+                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>{{__('menu.cases.custom_software') }}</p></div>
                 <div class="col-span-2">
                     <div class="grid grid-cols-2 grid-rows-3 gap-2">
                         <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>Компания по разработке ПО с главным офисом в ОАЭ</p></div>
@@ -57,7 +62,7 @@
         <div id="item4" class="carousel-item w-full">
             <div class="grid grid-cols-2 m-2 md:grid-cols-4 gap-2">
                 <div class="col-span-1 h-40 w-40"><img src="/img/QA.jpg"></div>
-                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>Outstaffing</p></div>
+                <div class="col-span-1"><p class="text-blue-500">{{__('menu.technologies') }}</p> <p>{{__('menu.cases.outstaffing') }}</p></div>
                 <div class="col-span-2">
                     <div class="grid grid-cols-2 grid-rows-3 gap-2">
                         <div> <p class="text-blue-500">{{__('menu.customer') }}</p> <p>Software development outsourcing company from the UK</p></div>

@@ -1,2 +1,8 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /login
+
+Allow: /portfolio
+Allow: /case
+Allow: /review
+Allow: /blogs

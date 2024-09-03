@@ -2,6 +2,11 @@
 
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +24,16 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::middleware('lang')->group(function () {
 Route::get('/', [App\Http\Controllers\BaseController::class, 'getIndex'])->middleware( 'lang');
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/dashboard', function () {return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/favorites', [ProfileController::class, 'favorites'])->name('profile.favorites');
+
 });
+    Route::post('/blogs/{blog}/favorite', [FavoriteController::class, 'toggleFavorite'])->name('blogs.favorite');
+
 Route::get('blogs', [Controllers\BlogController::class, 'getAll']);
 Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
 
@@ -49,6 +53,7 @@ Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
     Route::get('/case', function () {
         return view('case');
     });
+    Route::get('/sitemap.xml', [SitemapController::class, 'generateSitemap']);
 Route::middleware('auth')->group(function () {
     Route::post('blog/{blog}/add_text', [Controllers\BlogController::class, 'postBlogText']);
     Route::post('blogtext/{blog_text}/add_picture', [Controllers\BlogController::class, 'addPicture']);

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+{{--    meta-tags--}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta data-n-head="ssr" property="og:type" content="{{$og_type}}">
@@ -15,8 +16,26 @@
     <meta data-n-head="ssr" name="twitter:description" content="{{$og_description}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
+    <title>@yield('title', 'Default title')</title>
     @yield('meta')
+{{--    json-ld структурирование--}}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Volha Machys",
+  "url": "http://127.0.0.1:8000",
+  "logo": "https://www.example.com/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+375-29-687-58-87",
+    "contactType": "Customer Service Leadgeneration",
+    "areaServed": "EU, Belarus",
+    "availableLanguage": "English, Russian"
+  }
+}
+</script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>

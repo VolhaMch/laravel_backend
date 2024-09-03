@@ -33,4 +33,17 @@ return [
     'requirements'=>'Requirements',
     'customer'=>'Customer',
     'technologies'=>'Technologies',
+    'cases'=> [
+        'consulting' => 'IT consulting',
+        'cybersecurity' => 'Cybersecurity',
+        'custom_software' => 'Custom software development',
+        'outstaffing' => 'Outstaffing',
+    ],
+    'review' => [
+        'message_1' => "Let's make something great together!",
+        'message_2' => "Thank you! You'll be able to send the message next day.",
+
+    ],
+    'content'=> 'Table of contents',
+    'posted'=>'Posted',
 ];

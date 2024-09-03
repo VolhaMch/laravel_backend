@@ -1,5 +1,14 @@
 <x-app-layout>
-
+{{--    <form action="{{ route('blogs.favorite', $blog) }}" method="POST">--}}
+{{--        @csrf--}}
+{{--        <button type="submit">--}}
+{{--            @if(auth()->user()->favorites->contains($blog->id))--}}
+{{--                <i class="fa fa-heart text-red-500"></i>--}}
+{{--            @else--}}
+{{--                <i class="fa fa-heart-o"></i>--}}
+{{--            @endif--}}
+{{--        </button>--}}
+{{--    </form>--}}
     <section class="text-black-600 body-font">
         <div class="breadcrumbs text-sm">
             <ul>
@@ -36,22 +45,22 @@
                         <div class="grid grid-row place-items-start text-sm   md:grid-cols-3">
                         <div class="mb-4 mt-2 md:justify-self-start">{!! $blog->tags!!}</div>
                             <div class="mb-4 md:justify-self-end">{!! $blog->minutes!!}</div>
-                            <div class="mb-2 md:justify-self-center"> Posted {!! $blog->posted!!}</div>
+                            <div class="mb-2 md:justify-self-center"> {{__('menu.posted')}} {!! $blog->posted!!}</div>
                         </div>
                         <div class="col-span-3">
                             <div class="sm:grid sm:grid-cols-1 text-sm md:grid-cols-[1fr_3fr] gap-2">
                                 <div class="self-start md:sticky top-0">
-                                    <p>Table of contents</p>
+                                    <p>{{__('menu.content')}}:</p>
                                     <ul>
                                         <li>
-                                            1
+                                            Актуальна ли проблема?
                                         </li>
                                         <li>
-                                            2
+                                            Есть ли выход из ситуации?
                                         </li>
-                                        <li>
-                                           3
-                                        </li>
+{{--                                        <li>--}}
+{{--                                           3--}}
+{{--                                        </li>--}}
                                     </ul>
                                 </div>
                                 <div class="text-justify  rounded bg-base-100 shadow p-2 mb-4 text-sm md:text-base">
@@ -73,8 +82,8 @@
 
 
                             <div class="flex flew-row justify-between">
-                                <div class="text-lg ml-2">Оставьте коментарий:</div>
-                                <div class="text-lg mr-4">
+                                <div class="text-base ml-2 lg:text-lg">Оставьте коментарий:</div>
+                                <div class="text-base mr-4 mb-2 lg:text-lg">
                                     @if (auth()->guest())
                                         <a href="{{ route('login') }}" class="btn btn-primary">Sign in to comment</a>
                                     @endif
@@ -146,6 +155,7 @@
                     </p>
                 </div>
         @endforeach
+
     </section>
 
 

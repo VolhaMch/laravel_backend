@@ -29,7 +29,7 @@
 {{--    </div>--}}
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-3">
-        <div class="content-center text-grey font-bold text-center text-3xl mt-10 md:text-4xl">Let's make something great together!
+        <div class="content-center text-grey font-bold text-center text-3xl mt-10 md:text-4xl">{{__('menu.review.message_1')}}
             <div class="hidden md:block"> <i class="fa-solid fa-right-long"></i></div>
             <div class="mt-8 md:hidden"> <i class="fa-solid fa-down-long"></i> </div>
         </div>
@@ -38,7 +38,9 @@
         <div class="text-4xl font-semibold pb-5 text-center">{{__('menu.get_in_touch')}}</div>
     </div>
     @if($showhide)
-        Thank you!
+        <div class="text-lg text-center">
+        <p>{{__('menu.review.message_2')}}</p>
+        </div>
         @else
     <form action="{{asset('review/')}}" method="post" class="flex flex-col">
                         @csrf

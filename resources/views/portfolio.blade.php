@@ -1,4 +1,10 @@
 <x-app-layout>
+    @section('title', 'Portfolio')
+
+    @section('meta')
+        <meta name="description" content="Опыт работы, навыки и образование в портфолио.">
+        <meta name="keywords" content="портфолио, образоване, опыт работы, навыки">
+    @endsection
 
     <div class="m-4 bg-white rounded-2xl pb-8">
     <h1 class="text-center text-xl font-bold pt-6 pb-4 lg:text-2xl">Skills</h1>

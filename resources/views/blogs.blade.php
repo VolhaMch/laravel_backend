@@ -1,5 +1,10 @@
 <x-app-layout>
+    @section('title', 'Blog')
 
+    @section('meta')
+        <meta name="description" content="Читать последние статьи  в моём блоге, посвещенному маркетингу в сфере ИТ.">
+        <meta name="keywords" content="блог, маркетинг, ИТ, сделки, продажи, лидогенерация, инновации, лид, заказчик, проект, технологии">
+    @endsection
     <section class="body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
@@ -29,4 +34,21 @@
             </div>
         </div>
     </section>
+
     </x-app-layout>
+
+<!-- JSON-LD Script -->
+<script type="application/ld+json">
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "BlogPosting",
+                        "headline": "{{ $blog->name }}",
+                        "description": "{{ $blog->description_small }}",
+                        "author": {
+                            "@type": "Person",
+                            "name": "Machys Volha"
+                        },
+                        "image": "{{ asset('storage/'.$blog->picture) }}",
+{{--                        "datePublished": "{{ $blog->created_at->toISO8601String() }}"--}}
+                    }
+                    </script>
