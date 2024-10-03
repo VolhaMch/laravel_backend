@@ -79,10 +79,11 @@ class BlogController extends Controller
         $comment->post_id = $blog->id;
 //        $comment->status = '';
 //        dd($request->all());
+        $request->session()->flash('status', 'Your comment has been sent to verification and will be published soon.');
         $comment->save();
         return redirect()->back();
     }
-//
+
 }
 
 

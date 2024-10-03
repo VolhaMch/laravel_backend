@@ -6,6 +6,7 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DownloadController;
 
 
 /*
@@ -19,11 +20,9 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/download', [DownloadController::class, 'download'])->name('CV_Machys.pdf');
 Route::middleware('lang')->group(function () {
-Route::get('/', [App\Http\Controllers\BaseController::class, 'getIndex'])->middleware( 'lang');
+Route::get('/', [App\Http\Controllers\BaseController::class, 'getIndex']);
 Route::get('/dashboard', function () {return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,10 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/favorites', [ProfileController::class, 'favorites'])->name('profile.favorites');
 
 });
-    Route::post('/blogs/{blog}/favorite', [FavoriteController::class, 'toggleFavorite'])->name('blogs.favorite');
 
+    Route::middleware('auth')->group(function () {
+        Route::get('/favorite/{blog}', [FavoriteController::class, 'add'])->name('favorite.add');
+        Route::get('/favorite/{blog}/delete', [FavoriteController::class, 'delete'])->name('favorite.delete');
+    });
 Route::get('blogs', [Controllers\BlogController::class, 'getAll']);
-Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
+Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne'])->name('blog');
 
     Route::get('review', [Controllers\ReviewController::class,'getIndex']
     );
@@ -47,9 +49,9 @@ Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
 
 //    Route::get('comment', [Controllers\CommentController::class,'getIndex']);
 //    Route::post('comment', [Controllers\CommentController::class, 'postIndex']);
-    Route::get('/portfolio', function () {
-        return view('portfolio');
-    });
+//    Route::get('/portfolio', function () {
+//        return view('portfolio');
+//    });
     Route::get('/case', function () {
         return view('case');
     });

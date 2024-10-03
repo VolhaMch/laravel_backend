@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->string('tags')->nullable();
-            $table->string('minutes')->nullable();
-            $table->string('posted')->nullable();
+            $table->string('content_1')->nullable();
+            $table->string('content_2')->nullable();
+            $table->string('content_3')->nullable();
+            $table->string('content_4')->nullable();
         });
     }
 
@@ -28,9 +29,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->dropColumn('tags');
-            $table->dropColumn('minutes');
-            $table->dropColumn('posted');
+            $table->dropColumn('content_1');
+            $table->dropColumn('content_2');
+            $table->dropColumn('content_3');
+            $table->dropColumn('content_4');
         });
     }
 };

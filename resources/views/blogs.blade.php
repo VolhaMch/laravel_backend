@@ -6,7 +6,13 @@
         <meta name="keywords" content="блог, маркетинг, ИТ, сделки, продажи, лидогенерация, инновации, лид, заказчик, проект, технологии">
     @endsection
     <section class="body-font">
+        <div class="bg-white dark:bg-gray-800 shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 ml-6 sm:px-6 lg:px-8">
+                <h1 class="font-semibold text-xl text-gray-800 leading-tight">{{__('menu.blog')}}</h1>
+            </div>
+        </div>
         <div class="container px-5 py-24 mx-auto">
+
             <div class="flex flex-wrap -m-4">
                 @foreach($blogs as $blog)
                     <div class="p-4 md:w-1/3 relative">

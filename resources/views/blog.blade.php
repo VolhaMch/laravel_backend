@@ -1,26 +1,44 @@
 <x-app-layout>
-{{--    <form action="{{ route('blogs.favorite', $blog) }}" method="POST">--}}
-{{--        @csrf--}}
-{{--        <button type="submit">--}}
-{{--            @if(auth()->user()->favorites->contains($blog->id))--}}
-{{--                <i class="fa fa-heart text-red-500"></i>--}}
-{{--            @else--}}
-{{--                <i class="fa fa-heart-o"></i>--}}
-{{--            @endif--}}
-{{--        </button>--}}
-{{--    </form>--}}
+
+
     <section class="text-black-600 body-font">
+{{--comment message--}}
+        @if (session('status'))
+            <div class="toast toast-top toast-end" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">
+                <div class="alert alert-success">
+                    Thank you! <br />
+                    {{ session('status') }}
+                </div>
+            </div>
+        @endif
+
         <div class="breadcrumbs text-sm">
+
             <ul>
-                <li>Блог</li>
+                <li class="hover:underline"><a href="{{asset('blogs')}}">{{__('menu.blog')}}</a></li>
                 <li>{{ $blog->name}}</li>
             </ul>
         </div>
+
         <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+{{--            Favorites--}}
+            <div>
+            @if(auth()->check())
+                @if(auth()->user()->favorites->contains('blog_id', $blog->id))
 
+                        <a href="/favorite/{{$blog->id}}/delete" type="submit" class="text-indigo-600 hover:underline">
+                            <i class="fa-solid fa-bookmark"></i>{{__('menu.favorites_remove')}}
+                        </a>
+                @else
+                        <a href="/favorite/{{$blog->id}}" type="submit" class="text-indigo-600 hover:underline">
+                            <i class="fa-regular fa-bookmark"></i>{{__('menu.favorites_add')}}
+                        </a>
+                @endif
+            @endif
+            </div>
             <div class="text-3xl mt-3 text-center pb-5">
+                {{--like--}}
                 @include('includes.stars', ['model_name'=>'Blog', 'model_id'=>$blog->id, 'model'=>$blog])
-
                 <div class="grid grid-cols-1 rounded w-full">
                     <div>
                         <div class="text p-3 pb-0 font-bold text-center mb-6">
@@ -48,19 +66,14 @@
                             <div class="mb-2 md:justify-self-center"> {{__('menu.posted')}} {!! $blog->posted!!}</div>
                         </div>
                         <div class="col-span-3">
-                            <div class="sm:grid sm:grid-cols-1 text-sm md:grid-cols-[1fr_3fr] gap-2">
+                            <div class="sm:grid sm:grid-cols-1 text-sm mt-2 md:grid-cols-[1fr_5fr] gap-2 mt-4">
                                 <div class="self-start md:sticky top-0">
-                                    <p>{{__('menu.content')}}:</p>
-                                    <ul>
-                                        <li>
-                                            Актуальна ли проблема?
-                                        </li>
-                                        <li>
-                                            Есть ли выход из ситуации?
-                                        </li>
-{{--                                        <li>--}}
-{{--                                           3--}}
-{{--                                        </li>--}}
+                                    <p class="text-base font-bold">{{ __('menu.content') }}:</p>
+                                    <ul class="text-sm">
+                                        <li><a href="#section1" class="hover:underline">{!! $blog->content_1 !!}</a></li>
+                                        <li><a href="#section2" class="hover:underline">{!! $blog->content_2 !!}</a></li>
+                                        <li><a href="#section3" class="hover:underline">{!! $blog->content_3 !!}</a></li>
+                                        <li><a href="#section4" class="hover:underline">{!! $blog->content_4 !!}</a></li>
                                     </ul>
                                 </div>
                                 <div class="text-justify  rounded bg-base-100 shadow p-2 mb-4 text-sm md:text-base">
@@ -73,7 +86,7 @@
                     <div class="flex items-center flex-wrap">
                         <a class="text-indigo-500 text-sm m-4 hover:text-gray-400 inline-flex items-center md:mb-2 lg:mb-0"
                            href="{{asset('blogs')}}">
-                            <i class="fa-solid fa-arrow-left-long"> Назад к блогу</i>
+                            <i class="fa-solid fa-arrow-left-long">{{__('menu.back_to_blog') }}</i>
                         </a>
                     </div>
                           {{--комментарии--}}
@@ -82,20 +95,20 @@
 
 
                             <div class="flex flew-row justify-between">
-                                <div class="text-base ml-2 lg:text-lg">Оставьте коментарий:</div>
+                                <div class="text-base ml-2 lg:text-lg">{{__('menu.leave_comment') }}</div>
                                 <div class="text-base mr-4 mb-2 lg:text-lg">
                                     @if (auth()->guest())
-                                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in to comment</a>
+                                        <a href="{{ route('login') }}" class="btn btn-primary">{{__('menu.sign_in') }}</a>
                                     @endif
                                 </div>
                             </div>
                             <form method="post" action="{{asset('blog/'.$blog->id.'/add_comment')}}">
                                 @csrf
-                                <input class="input input-info mb-2" type="text" name="user_name" placeholder="Имя"
+                                <input class="input input-info mb-2" type="text" name="user_name" placeholder="{{__('menu.your_name') }}"
                                        value="{{Auth::guest()?'':Auth::user()->name}}"/><br>
                                 <textarea name="message" class="textarea textarea-bordered textarea-lg w-full max-w-xs"
-                                          placeholder="Ваш комментарий"></textarea><br>
-                                <button class="btn">Отправить</button>
+                                          placeholder="{{__('menu.your_comment') }}"></textarea><br>
+                                <button class="btn">{{__('menu.send') }}</button>
                             </form>
                             {{--                        <div class="text-lg">Читать ещё: карусель</div>--}}
 
@@ -155,6 +168,14 @@
                     </p>
                 </div>
         @endforeach
+            @if (session('status'))
+                <div class="toast toast-top toast-end" x-data="{show: true}" x-init="setTimeout(() => show = false, 5000)" x-show="show">
+                    <div class="alert alert-success">
+                        Thank you! <br />
+                        {{ session('status') }}
+                    </div>
+                </div>
+        @endif
 
     </section>
 

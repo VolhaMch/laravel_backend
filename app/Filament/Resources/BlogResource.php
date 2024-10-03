@@ -36,7 +36,14 @@ class BlogResource extends Resource
                 TextInput::make('status'),
                 TextInput::make('tags'),
                 TextInput::make('minutes'),
-                TextInput::make('posted')
+                TextInput::make('posted'),
+                TextInput::make('content_1'),
+                TextInput::make('content_2'),
+                TextInput::make('content_3'),
+                TextInput::make('content_4')
+
+
+
             ]);
     }
 //вывод
@@ -46,7 +53,11 @@ class BlogResource extends Resource
             ->columns([
                 ImageColumn::make('picture'),
                 TextColumn::make('name'),
-                TextColumn::make('description_small')
+                TextColumn::make('description_small'),
+                TextColumn::make('content_1'),
+                TextColumn::make('content_2'),
+                TextColumn::make('content_3'),
+                TextColumn::make('content_4')
             ])
             ->filters([
                 //

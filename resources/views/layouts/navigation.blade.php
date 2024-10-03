@@ -1,7 +1,7 @@
 <header>
 <div x-data="{ isHome: @json(request()->path()=== '/') }" :class="isHome ? 'bg-transparent' : 'bg-black'" class="navbar  text-neutral-content">
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl  text-white">{{__('menu.volha_machys') }}</a>
+        <a href="/" class="btn btn-ghost text-xl  text-white">{{__('menu.volha_machys') }}</a>
     </div>
 <div x-data="{ open: false }">
     <button @click="open = !open" class="p-4 focus:outline-none">
@@ -19,7 +19,15 @@
 
     <!-- Меню для мобильной версии -->
     <div x-show="open"  x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-full" class="fixed z-40 top-0 right-0 w-1/2 h-1/2 bg-neutral shadow-md md:hidden">
+
+        <div class="ml-4">  @if($world == 'register')
+                <span class="bg-gray-600">{{__('menu.register')}}</span>
+            @else
+                <a href="/register">{{__('menu.register')}}</a>
+            @endif</div>
+
         <div class="m-4 link link-hover">
+
             @guest
                 <!-- Если пользователь не авторизован -->
                 <i class="fa-regular fa-user">
@@ -27,13 +35,9 @@
 
             @else
                 <!-- Если пользователь авторизован -->
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
                 <i class="fa-regular fa-user">
                 </i>
-                <a href="#" x-data @click.prevent="$refs.logoutForm.submit()">Logout</a>
-                <form x-ref="logoutForm" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <a href="{{ route('dashboard') }}">{{Auth::user()->name}}</a>
             @endguest
 
         </div>
@@ -93,20 +97,23 @@
     <!-- Меню для десктопной версии -->
 
     <nav class="hidden md:flex md:items-center md:space-x-4 font-bold text-white">
+        <div>  @if($world == 'register')
+                <span class="bg-gray-600">{{__('menu.register')}}</span>
+            @else
+                <a href="/register">{{__('menu.register')}}</a>
+            @endif</div>
+
         <div class="m-4 link link-hover">
+
                 @guest
                     <!-- Если пользователь не авторизован -->
                     <i class="fa-regular fa-user">
                     </i><a href="{{ route('login') }}">Login</a>
                 @else
                     <!-- Если пользователь авторизован -->
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
                     <i class="fa-regular fa-user">
                     </i>
-                    <a href="#" x-data @click.prevent="$refs.logoutForm.submit()">Logout</a>
-                    <form x-ref="logoutForm" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <a href="{{ route('dashboard') }}">{{Auth::user()->name}}</a>
                 @endguest
         </div>
         <ul class="flex flex-row">

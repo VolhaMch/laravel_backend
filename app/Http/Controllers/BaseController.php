@@ -10,9 +10,8 @@ use App\Models\Service;
 class BaseController extends Controller
 {
     public function getIndex(){
-        $services = Service::whereIn('type',['flower', 'mushroom'])->get();
 
-        return view('index', compact('services'));
+        return view('index');
 
     }
     public function getUrl($url = null){
